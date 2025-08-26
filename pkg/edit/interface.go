@@ -70,13 +70,13 @@ func Edit(eParams *EditParams) error {
 	}
 	log.Debugf("input sbom spec: %s format: %s", spec, format)
 
-	if spec == "cyclonedx" {
+	if spec == string(sbom.SBOMSpecCDX) {
 		if err = cdxEdit(c); err != nil {
 			return err
 		}
 	}
 
-	if spec == "spdx" {
+	if spec == string(sbom.SBOMSpecSPDX) {
 		if err = spdxEdit(c); err != nil {
 			return err
 		}
